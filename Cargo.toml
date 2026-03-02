@@ -1,0 +1,32 @@
+[package]
+name = "augsso_bench"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "augsso_bench"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bench_augsso"
+path = "src/bin/bench_augsso.rs"
+
+[dependencies]
+blake3 = "1"
+chacha20poly1305 = "0.10"
+rand_core = "0.6"
+rand_chacha = "0.3"
+
+# Pairings (BLS12-381)
+bls12_381 = "0.8"
+group = "0.13"
+ff = "0.13"
+subtle = "2"
+
+# Simple PKE (X25519 + XChaCha20-Poly1305)
+x25519-dalek = { version = "2", features = ["static_secrets"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
