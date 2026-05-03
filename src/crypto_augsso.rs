@@ -11,6 +11,7 @@ use x25519_dalek::{PublicKey as X25519Pk, StaticSecret as X25519Sk};
 use crate::crypto_core;
 
 pub const G1_LEN: usize = 48;
+pub const G2_LEN: usize = 96;
 
 pub type Scalar = BScalar;
 pub type G1 = G1Projective;
